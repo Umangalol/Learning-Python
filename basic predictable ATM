@@ -1,0 +1,52 @@
+#ATM system type shit
+
+
+user_balance = 1000
+
+option = ["Check Balance", "Deposit Money", "Withdraw Money", "Exit"]
+
+print("Welcome to anyones ATM, please enter your accounts password to proceed to transaction.")
+
+while True:
+    Your_password = input("\nEnter your password (money_123): ")
+    
+    password = False
+    
+    
+    if Your_password == "money_123":
+        password = True
+    
+    if not password:
+        print("\nError! Choose a valid password.")
+    else:
+        print("\nSuccess, proceeding forward.")
+        break
+       
+print("\nYou may choose the following actions: ")
+print("|".join(option))
+
+while True:
+        reply = input("\nChoose your action: ")
+        if reply == "Check Balance":
+            print(f"\nYou currently have an amount of {user_balance}")
+        elif reply == "Deposit Money":
+            dep_amount = int(input("\nEnter an amount to deposit: "))
+            if dep_amount <= 0:
+                print("\nError! Enter an valid amount.")
+                continue
+            else:
+                user_balance = dep_amount +user_balance
+            print(f"\nSuccessfully deposited {dep_amount} to your bank account.\nYour new balance is {user_balance}")
+        elif reply == "Withdraw Money":
+          withd_amount = int(input("\nEnter an amount to withdraw: "))
+          if withd_amount > user_balance or withd_amount <= 0:
+              print("\nError! Please choose a valid amount.")
+          else:
+               user_balance = user_balance - withd_amount
+               print(f"\nWithdrew {withd_amount}.\n{user_balance} balance remaining")
+ 
+        elif reply == "Exit":
+               print("\nThank you for doing business with us.")
+               break
+        else:
+               print("\nPlease choose an valid action. Make sure to type the action perfectly.")
