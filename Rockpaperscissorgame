@@ -1,0 +1,18 @@
+import random
+print("Rock paper scissor game yo")
+while True:
+    user = input("Choose your move and make it valid: ").lower()
+    moves = ["rock", "paper", "scissor"]
+    Bot = random.choice(moves)
+    print(f"Your move: {user}")
+    print(f"My move: {Bot}")
+
+    if user == Bot:
+        print ("Draw.")
+    elif user == "rock" and Bot == "scissor" or user == "scissor" and Bot == "paper" or user == "paper" and Bot == "rock":
+        print("You win.")
+    elif user == "rock" and Bot == "paper" or user == "scissor" and Bot == "rock" or user == "paper" and Bot == "scissor":
+        print("I win, loser.")
+    else:
+        print("Invalid.")
+    
